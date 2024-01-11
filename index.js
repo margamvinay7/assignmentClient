@@ -74,13 +74,18 @@ updateBtn.addEventListener('click',function(){
 
 const addBtn=document.querySelector('#add-name-btn');
 
-addBtn.addEventListener('click',function(){
+addBtn.addEventListener('click',async function(e){
+    e.preventDefault()
     console.log('add button clicked')
     const nameInput=document.querySelector('#name-input');
     const name=nameInput.value;
-    nameInput.value="";
+    console.log(name)
+   
+        nameInput.value="";
+    
+    
 
-    fetch('https://assignmentserver-gexz.onrender.com/insert',{
+    await fetch('https://assignmentserver-gexz.onrender.com/insert',{
         headers:{
             'Content-type':'application/json'
         },
@@ -90,7 +95,9 @@ addBtn.addEventListener('click',function(){
     .then(response=>response.json())
     .then(data=>insertRowIntoTable(data['data']));
 
+
     location.reload()
+    
 })
 
 function insertRowIntoTable(data) {
