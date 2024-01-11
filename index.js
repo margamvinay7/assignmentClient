@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
-    fetch('http://localhost:3000/getAll')
+    fetch('https://assignmentserver-gexz.onrender.com/getAll')
     .then(response=>response.json())
     .then(data=>{
         console.log(data)
@@ -25,13 +25,13 @@ searchBtn.addEventListener('click',function(){
     
     const searchValue=document.querySelector('#search-input').value;
     console.log(searchValue)
-    fetch('http://localhost:3000/search/'+searchValue)
+    fetch('https://assignmentserver-gexz.onrender.com/search/'+searchValue)
     .then(response=>response.json())
     .then(data=>loadHTMLTable(data['data']))
 })
 
 function deleteRowById(id){
-    fetch('http://localhost:3000/delete/'+id,{
+    fetch('https://assignmentserver-gexz.onrender.com/delete/'+id,{
         method:'DELETE'
     })
     .then(response=>response.json())
@@ -54,7 +54,7 @@ updateBtn.addEventListener('click',function(){
 
     console.log(updateNameInput);
 
-    fetch('http://localhost:3000/update',{
+    fetch('https://assignmentserver-gexz.onrender.com/update',{
         method:'PATCH',
         headers:{
             'Content-type':'application/json'
@@ -80,7 +80,7 @@ addBtn.addEventListener('click',function(){
     const name=nameInput.value;
     nameInput.value="";
 
-    fetch('http://localhost:3000/insert',{
+    fetch('https://assignmentserver-gexz.onrender.com/insert',{
         headers:{
             'Content-type':'application/json'
         },
